@@ -19,6 +19,9 @@ CREATE TABLE `STOCK` (
   `stock_id` varchar(255) PRIMARY KEY NOT NULL,
   `stock_name` varchar(255) NOT NULL,
   `ticker` varchar(255) NOT NULL,
+  `exchange` varchar(255),
+  `asset_type` varchar(255),
+  `ipo_date` timestamp,
   `current_price` double
 );
 
