@@ -23,7 +23,6 @@ CREATE TABLE `STOCK` (
 );
 
 CREATE TABLE `HISTORIC_PRICE` (
-  `price_id` varchar(255) PRIMARY KEY NOT NULL,
   `stock_id` varchar(255) NOT NULL,
   `interval` ENUM ('1m', '5m', '10m', '30m', '1hr', '1d') NOT NULL,
   `close_timestamp` timestamp NOT NULL,
@@ -31,7 +30,8 @@ CREATE TABLE `HISTORIC_PRICE` (
   `high_price` double,
   `low_price` double,
   `close_price` double NOT NULL,
-  `volume` double
+  `volume` double,
+  PRIMARY KEY (`stock_id`, `interval`, `close_timestamp`)
 );
 
 CREATE TABLE `FUND_HISTORY` (
