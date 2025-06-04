@@ -4,6 +4,8 @@ This repository contains the code and documentation for my market sentiment trad
 
 I will also create a web application to visualise the data, strategies and market signals, along with writing up a research paper on the findings.
 
+Please use this README as a guide to the project structure and a roadmap for recreating the project.
+
 ## Phase 1: Data Engineering and Collection
 
 This phase involves setting up a data pipeline to collect and process market data, sentiment data, and trade data. I will use a MySQL database to store the data and Python for data processing.
@@ -11,3 +13,5 @@ This phase involves setting up a data pipeline to collect and process market dat
 ### Relational Diagram
 
 ![](./database/relational_diagram.svg)
+
+From this we can create out database schema, which is defined in the `database/DDL.sql` file. This file contains the SQL commands to create the MySQL database and tables.

@@ -194,3 +194,4 @@ cython_debug/
 .cursorindexingignore
 
 secrets.json
+database/setup/listing_status.csv

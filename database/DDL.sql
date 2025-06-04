@@ -16,7 +16,7 @@ CREATE TABLE `TRADE` (
 );
 
 CREATE TABLE `STOCK` (
-  `stock_id` varchar(255) PRIMARY KEY NOT NULL,
+  `stock_id` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   `stock_name` varchar(255) NOT NULL,
   `ticker` varchar(255) NOT NULL,
   `exchange` varchar(255),
