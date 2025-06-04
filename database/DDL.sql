@@ -1,13 +1,13 @@
 CREATE TABLE `FUND` (
-  `fund_id` varchar(255) PRIMARY KEY NOT NULL,
+  `fund_id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `fund_name` varchar(255) NOT NULL,
   `fund_value` double NOT NULL
 );
 
 CREATE TABLE `TRADE` (
-  `trade_id` varchar(255) PRIMARY KEY NOT NULL,
-  `fund_id` varchar(255) NOT NULL,
-  `stock_id` varchar(255) NOT NULL,
+  `trade_id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `fund_id` int NOT NULL,
+  `stock_id` int NOT NULL,
   `price` double NOT NULL,
   `quantity` double NOT NULL,
   `type` ENUM ('BUY', 'SELL') NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE `TRADE` (
 );
 
 CREATE TABLE `STOCK` (
-  `stock_id` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `stock_id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `stock_name` varchar(255) NOT NULL,
   `ticker` varchar(255) NOT NULL,
   `exchange` varchar(255),
@@ -26,7 +26,7 @@ CREATE TABLE `STOCK` (
 );
 
 CREATE TABLE `HISTORIC_PRICE` (
-  `stock_id` varchar(255) NOT NULL,
+  `stock_id` int NOT NULL,
   `interval` ENUM ('1m', '5m', '10m', '30m', '1hr', '1d') NOT NULL,
   `close_timestamp` timestamp NOT NULL,
   `open_price` double,
@@ -38,7 +38,7 @@ CREATE TABLE `HISTORIC_PRICE` (
 );
 
 CREATE TABLE `FUND_HISTORY` (
-  `fund_id` varchar(255) NOT NULL,
+  `fund_id` int NOT NULL,
   `date` date NOT NULL,
   `closing_value` double NOT NULL,
   `change` double NOT NULL,
@@ -46,19 +46,19 @@ CREATE TABLE `FUND_HISTORY` (
 );
 
 CREATE TABLE `DEPOSIT` (
-  `deposit_id` varchar(255) NOT NULL,
-  `fund_id` varchar(255) NOT NULL,
+  `deposit_id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `fund_id` int NOT NULL,
   `timestamp` timestamp NOT NULL,
   `deposit_amount` double NOT NULL,
   `type` ENUM ('DEPOSIT', 'WITHDRAWAL') NOT NULL
 );
 
 CREATE TABLE `SENTIMENT` (
-  `sentiment_id` varchar(255) PRIMARY KEY NOT NULL,
-  `stock_id` varchar(255),
+  `sentiment_id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `stock_id` int,
   `timestamp` timestamp NOT NULL,
   `source` ENUM ('REDDIT', 'TWITTER', 'NEWS') NOT NULL,
-  `content` varchar(255) NOT NULL
+  `content` text NOT NULL
 );
 
 ALTER TABLE `TRADE` ADD FOREIGN KEY (`fund_id`) REFERENCES `FUND` (`fund_id`);
