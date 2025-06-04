@@ -14,4 +14,7 @@ This phase involves setting up a data pipeline to collect and process market dat
 
 ![](./database/relational_diagram.svg)
 
-From this we can create out database schema, which is defined in the `database/DDL.sql` file. This file contains the SQL commands to create the MySQL database and tables.
+### Steps:
+
+1. Execute DDL statements.
+2. Execute stock_table_insert.py to populate the stock table.
