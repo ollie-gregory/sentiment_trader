@@ -1,4 +1,4 @@
-# sentiment_trader
+# DRIFTBASE
 
 This repository contains the code and documentation for my market sentiment trading project. This project aims to create a data streaming pipeline that collects, processes and analyses market sentiment and price data. All strategies will be backtested using historical data. Finally, I shall connect the strategies to a spread betting API to trade live, should the strategies prove profitable.
 
